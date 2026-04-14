@@ -16,6 +16,7 @@ const db = getFirestore(app);
 const btn = document.querySelector('button');
 const inputNombre = document.getElementById('nombre');
 
+if (btn) {
 btn.addEventListener('click', async () => {
   const nombreValue = inputNombre.value.trim();
   if (!nombreValue) return alert("Ingresa tu nombre");
@@ -31,6 +32,7 @@ btn.addEventListener('click', async () => {
     console.error(e);
   }
 });
+}
 
 try {
     await addDoc(collection(db, "invitados"), {
