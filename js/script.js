@@ -17,21 +17,29 @@ const btn = document.querySelector('button');
 const inputNombre = document.getElementById('nombre');
 
 if (btn) {
-btn.addEventListener('click', async () => {
-  const nombreValue = inputNombre.value.trim();
-  if (!nombreValue) return alert("Ingresa tu nombre");
+    btn.addEventListener('click', async () => {
+        const nombreValue = inputNombre.value.trim(); 
 
-  try {
-    await addDoc(collection(db, "invitados"), {
-      nombre: nombreValue,
-      fecha: new Date()
+        if (nombreValue === "") {
+            alert("Por favor, ingresa tu nombre");
+            return;
+        }
+
+        try {
+            await addDoc(collection(db, "invitados"), {
+                nombre: nombreValue, // It exists here now!
+                fecha: new Date()
+            });
+
+            // Success logic
+            inputNombre.style.display = "none";
+            btn.style.display = "none";
+            successMsg.classList.add('visible');
+
+        } catch (e) {
+            console.error("Firebase Error:", e);
+        }
     });
-    btn.innerText = "¡Confirmado!";
-    inputNombre.value = "";
-  } catch (e) {
-    console.error(e);
-  }
-});
 }
 
 try {
