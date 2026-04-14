@@ -51,5 +51,4 @@ try {
 
 } catch (e) {
     console.error("Error:", e);
-    alert("Hubo un fallo: " + e.message);
 }
