@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'olivetti-typewriter';
-    src: url('/res/olivetti-typewriter.otf') format('opentype');
+    src: url('./res/olivetti-typewriter.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
