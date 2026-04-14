@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'olivetti-typewriter';
-    src: url('/res/olivetti-typewriter.otf');
+    src: url('/res/olivetti-typewriter.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -97,11 +97,3 @@ p {
 #link {
     color: #536d9c;
 }
-    background: linear-gradient(
-        to bottom, 
-        #bcc6cc 0%,
-        #eee 50%,
-        #838996 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
