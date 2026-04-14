@@ -2,16 +2,106 @@
     box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    
+@font-face {
+    font-family: 'olivetti-typewriter';
+    src: url('/res/olivetti-typewriter.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  height: 100vh;
+  text-align: center;
+  filter: contrast(130%) brightness(100%);
+  background: 
+	radial-gradient(circle at -30% 88%, rgba(234, 79, 180, 0.856), rgba(192,192,192,0)),
+	radial-gradient(circle at 96% 40%, rgba(115, 144, 195, 0.897), rgba(0,0,255,0)),
+	url("data:image/svg+xml,%3Csvg viewBox='0 0 347 347' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.19' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 h2 {
-  font-family: "Playwrite IE", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Playwrite IE";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #e0e0e0;
+    font-size: 1.3rem;
 }
+
+h3 {
+    font-family: "Playwrite IE";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-family: 'olivetti-typewriter';
+    font-size: 5rem;
+    color:#d4309b;
+    margin: 25px;
+}
+
+p {
+    font-family: DM Sans, sans-serif;
+    color:#e0e0e0;
+}
+
+#nombre {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #e0e0e060;
+    padding: 5px 0;
+    width: 250px;
+    outline: none;
+    font-family: DM Sans, sans-serif;
+    margin-bottom: 25px;
+    color:#e0e0e0;
+}
+
+::placeholder {
+  color: #e0e0e060;
+}
+
+#nombre:focus {
+    border-bottom-color: #e0e0e0;
+    transition: border-bottom-color 0.3s ease;
+}
+
+#button {
+    background: transparent;
+    font-family: DM Sans, sans-serif;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.24);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.7px);
+    -webkit-backdrop-filter: blur(0.7px);
+    border: 1px solid rgba(255, 255, 255, 0.77);
+    color: #e0e0e0;
+}
+
+#link {
+    color: #536d9c;
+}
+    background: linear-gradient(
+        to bottom, 
+        #bcc6cc 0%,
+        #eee 50%,
+        #838996 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
