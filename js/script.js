@@ -1,20 +1,20 @@
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBu4qvjGL8BGheXRy7YDrmcTaqg3H46388",
-    authDomain: "name-manager-21s.firebaseapp.com",
-    projectId: "name-manager-21s",
-    storageBucket: "name-manager-21s.firebasestorage.app",
-    messagingSenderId: "249921812070",
-    appId: "1:249921812070:web:52634682588f691ccd9fa7"
-  };
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyBu4qvjGL8BGheXRy7YDrmcTaqg3H46388",
+  authDomain: "name-manager-21s.firebaseapp.com",
+  projectId: "name-manager-21s",
+  storageBucket: "name-manager-21s.firebasestorage.app",
+  messagingSenderId: "249921812070",
+  appId: "1:249921812070:web:52634682588f691ccd9fa7"
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const btn = document.querySelector('button');
+const btn = document.getElementById('button');
 const inputNombre = document.getElementById('nombre');
+const successMsg = document.getElementById('message-success');
 
 if (btn) {
     btn.addEventListener('click', async () => {
@@ -26,41 +26,26 @@ if (btn) {
         }
 
         try {
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
             await addDoc(collection(db, "invitados"), {
-                nombre: nombreValue, // It exists here now!
+                nombre: nombreValue,
                 fecha: new Date()
             });
 
-            // Success logic
+            btn.innerText = "Confirmado!";
+
             inputNombre.style.display = "none";
-            btn.style.display = "none";
+
             successMsg.classList.add('visible');
 
         } catch (e) {
             console.error("Firebase Error:", e);
+            btn.innerText = "Error, intenta de nuevo";
+            btn.disabled = false;
         }
     });
-}
-
-try {
-    await addDoc(collection(db, "invitados"), {
-        nombre: nombreValue,
-        fecha: new Date()
-    });
-
-    // 1. Target the elements
-    const successMsg = document.getElementById('message-success');
-    const inputArea = document.querySelector('#container > div:last-child'); 
-
-    // 2. Hide input and button
-    inputNombre.style.display = "none";
-    btn.style.display = "none";
-
-    // 3. Show the success message with a fade
-    successMsg.classList.add('visible');
-
-} catch (e) {
-    console.error("Error:", e);
 }
 
 function createConfetti() {

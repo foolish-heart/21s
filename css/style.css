@@ -106,6 +106,7 @@ h3 {
     font-style: normal;
     color: #e0e0e0;
     font-size: 1.4rem;
+    margin-bottom: 10px;
 }
 
 h1 {
@@ -121,6 +122,7 @@ p {
     font-family: DM Sans, sans-serif;
     color:#e0e0e0;
     font-size: 1.2rem;
+    line-height: 0.6;
 }
 
 #nombre {
@@ -209,4 +211,14 @@ p {
     100% {
         transform: translateY(100dvh) rotate(360deg) translateX(0px);
     }
+}
+
+#message-success {
+    font-family: DM Sans, sans-serif;
+    color:#e0e0e0;
+    font-size: 1.2rem;
+}
+
+#message-success.visible {
+    display: block;
 }
