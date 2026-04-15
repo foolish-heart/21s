@@ -62,3 +62,30 @@ try {
 } catch (e) {
     console.error("Error:", e);
 }
+
+function createConfetti() {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    
+    const colors = ['#f0f4ff93', '#ffb6ea85', '#e0e0e080', '#a4c5ff81'];
+    const sizeWidth = Math.random() * 7 + 7 + 'px'; 
+    const sizeHeight = Math.random() * 5 + 10 + 'px';
+    
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.width = sizeWidth;
+    confetti.style.height = sizeHeight;
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    
+    const duration = Math.random() * 4 + 6;
+    confetti.style.animationDuration = duration + 's';
+    confetti.style.opacity = Math.random();
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, duration * 1000);
+}
+
+setInterval(createConfetti, 600);
